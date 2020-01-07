@@ -1,0 +1,531 @@
+.header {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    color: $black;
+    background-color: $bg;
+
+    &__container {
+        max-width: 114rem;
+        height: 100vh;
+        margin: 0 auto;
+
+        @include respond(tab-port-lg) {
+            max-width: 96rem;
+            height: 100%;
+        }
+
+        &-nav {
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @include respond(phone) {
+                flex-direction: column;
+            }
+
+            & > img {
+                height: 3.5rem;
+
+                @include respond(tab-port-lg) {
+                    margin-left: 2rem;
+                }
+
+                @include respond(phone) {
+                    margin-left: 0;
+                    margin-bottom: 2rem;
+                }
+            }
+
+            &--form {
+                position: relative;
+                display: flex;
+                justify-self: center;
+                align-items: center;
+                flex-direction: row;
+
+                @include respond(phone) {
+                    margin-right: 0;
+                }
+
+                @include respond(tab-port-lg) {
+                    margin-right: 2rem;
+                }
+
+                &-input {
+                    flex-grow:2;
+                    width: 25rem;
+                    height: 4rem;
+                    background-color: transparent;
+                    color: $blue;
+                    border: 1px solid $grey;
+                    border-radius: .5rem 0 0 .5rem;
+                    padding: 1.5rem 3rem 1.5rem 1.5rem;
+                    transition: all .3s cubic-bezier(.62,.23,.24,1);
+
+                    &::placeholder {
+                        color: $grey;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        border: 1px solid $blue;
+
+                        &::placeholder {
+                            color: $blue;
+                        }
+                    }
+                }
+
+                &-btn {
+                    height: 4rem;
+                    font-size: 1.2rem;
+                    background-color: $blue;
+                    color: $white;
+                    padding: 1.2rem;
+                    text-align: center;
+                    margin-left: -4rem;
+                    border-radius: 0 .5rem .5rem 0;
+                    border: none;
+                    text-decoration: none;
+                    transition: all .3s cubic-bezier(.62,.23,.24,1);
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $dark-blue;
+                    }
+                }
+
+                &-error {
+                    display: flex;
+                    align-items: center;
+                    font-size: 1.4rem;
+                    position: absolute;
+                    left: 1.5rem;
+                    color: $red;
+                    opacity: 0;
+                    transform: translateY(0);
+                    z-index: -1;
+
+                    & > svg {
+                        height: 2rem;
+                        width: 2rem;
+                        margin-right: .5rem;
+                    }
+                }
+            }
+        }
+
+        &-card {
+            width: 61.8%;
+            min-height: 70rem;
+            display: flex;
+            position: relative;
+            background-color: $white;
+            float: left;
+            box-shadow: 1rem 1rem 5rem $light-grey;
+            margin-top: 5rem;
+            border-radius: .5rem;
+            padding: 4.5rem 5rem 5rem 5rem;
+
+            @include respond(tab-land) {
+                min-width: 50%;
+            }
+
+            @include respond(tab-port-lg) {
+                text-align: center;
+                flex-direction: column;
+                width: 100%;
+                float: none;
+                padding: 4.5rem 15% 5rem 15%;
+            }
+
+            @include respond(phone) {
+                padding: 2.5rem;
+            }
+
+            &--text {
+                color: $grey;
+                width: 75%;
+                font-size: 3.8rem;
+                font-weight: 300;
+
+                @include respond(tab-port-lg) {
+                    text-align: center;
+                    width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            &--stats {
+                position: relative;
+
+                @include respond(tab-port-lg) {
+                    min-height: 70rem;
+                }
+
+                &-city-name {
+                    position: relative;
+                    color: $black;
+                    margin-bottom: 1rem;
+                    font-size: 3.5rem;
+                    font-weight: 700;
+                    display: flex;
+
+                    @include respond(tab-port-lg) {
+                        justify-content: center;
+                    }
+                
+                    @include respond(tab-port-md) {
+                        font-size: 3rem;
+                    }
+
+                    .weather-city {
+                        margin: -.8rem 0 0 1rem;
+                    }
+                }
+
+                &-coords {
+                    font-weight: 400;
+                    font-size: 1.3rem;
+                    color: $grey;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 3.4rem;
+                        background-color: $blue;
+                        width: 2.5rem;
+                        height: .5rem;
+
+                        @include respond(tab-port-lg) {
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+                    }
+                }
+
+                &-city {
+                    margin: 5rem 0 3.5rem 0;
+
+                    .date {
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                        color: $grey;
+                    }
+
+                    .temperature {
+                        height: 25rem;
+                        font-weight: 100;
+                        font-size: 25rem;
+                        color: $black;
+
+                        @include respond(tab-port-lg) {
+                            margin-bottom: 0rem;
+                        }
+
+                        @include respond(phone) {
+                            margin-bottom: -5rem;
+                            font-size: 18rem;
+                        }
+                    }
+                }
+
+                &-secondary {
+                    font-weight: 400;
+                    font-size: 1.5rem;
+                    line-height: 2.5rem;
+                    color: $grey;
+                    margin-bottom: 5rem;
+                    display: flex;
+
+                    @include respond(tab-port-lg) {
+                        font-size: 2rem;
+                        line-height: 3.5rem;
+                        flex-direction: column;
+                        align-items: center;
+                        margin-bottom: 3.5rem;
+                    }
+
+                    .minmax,
+                    .parameters {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .minmax {
+                        margin-right: 4rem;
+
+                        @include respond(tab-port-lg) {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                &-btn {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    background-color: $blue;
+
+                    @include respond(tab-port-lg) {
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+
+                    &:hover {
+                        background-color: $dark-blue;
+                    }
+                }
+            }
+
+            &--forecast {
+                margin-top: 10.5rem;
+                flex: 1;
+
+                @include respond(tab-port-lg) {
+                    margin-top: 5.5rem;
+                }
+
+                @include respond(tab-port-md) {
+                    width: 100%;
+                }
+
+                & > ul {
+                    margin-left: 3.5rem;
+
+                    @include respond(tab-port-lg) {
+                        width: 100%;
+                        margin: 1.5rem auto;
+                    }
+
+                    & > * {
+                        display: flex;
+                        align-content: center;
+                        width: 100%;
+                        height: 8rem;
+                        padding: 1.5rem;
+                        position: relative;
+                        border-bottom: 1px solid $light-grey;
+
+                        @include respond(tab-port-md) {
+                            width: 100%;
+                        }
+
+                        &:not(:last-child) {
+                            margin-bottom: 1.5rem;
+                        }
+
+                        .date {
+                            font-size: 1.2rem;
+                            font-weight: 400;
+                            color: $grey;
+
+                            @include respond(tab-port-lg) {
+                                font-size: 1.4rem;
+                            }
+                        }
+
+                        .icon {
+                            position: absolute;
+                            left: 1.5rem;
+                            top: 4rem
+                        }
+
+                        .temperature {
+                            position: absolute;
+                            right: 1.5rem;
+                            top: 4.3rem;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-saved-card {
+            width: calc(100% - 65.2%);
+            float: left;
+            background-color: $white;
+            position: relative;
+            margin-left: 3.5rem;
+            box-shadow: 1rem 1rem 5rem $light-grey;
+            padding: 4.5rem 5rem 5rem 5rem;
+            margin-top: 5rem;
+
+            @include respond(tab-port-lg) {
+                width: 100%;
+                float: none;
+                margin-left: 0;
+                padding: 4.5rem 15% 5rem 15%;
+            }
+
+            &--text {
+                color: $grey;
+                font-size: 2.5rem;
+                font-weight: 300;
+
+                @include respond(tab-port-lg) {
+                    text-align: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            &--title {
+                text-align: center;
+                font-size: 1.8rem;
+                font-weight: 400;
+            }
+
+            &--error,
+            &--success {
+                padding: 1.5rem;
+                width: 100%;
+                color: $white;
+                border-radius: .5rem;
+                font-size: 1.4rem;
+                margin: 2rem auto 2rem auto;
+                text-align: center;
+                // transform: translateY(-3rem);
+            }
+
+            &--error {
+                background-color: lighten($red, 25%);
+                border: 1px solid $red;
+            }
+
+            &--success {
+                background-color: lighten($success, 13%);
+                border: 1px solid $success;
+            }
+            
+
+            & > ul {
+                margin-top: 2.5rem;
+                margin-bottom: 2.5rem;
+                display: flex;
+                flex-direction: column;
+
+                & > * {
+                    display: flex;
+                    align-content: center;
+                    position: relative;
+                    padding: 2rem;
+                    border-bottom: 1px solid $light-grey;
+                    font-size: 1.5rem;
+                    cursor: pointer;
+                    border-radius: .5rem;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        background-color: $light-grey;
+
+                        .temperature {
+                            margin-right: 3.5rem;
+                        }
+
+                        .icon {
+                            opacity: 1;
+
+                            &:hover {
+                                fill: darken($red, 10%);
+                            }
+                        }
+                    }
+
+                    .temperature {
+                        position: absolute;
+                        right: 1.5rem;
+                        transition: all .2s cubic-bezier(.62,.23,.24,1);
+
+                        @include respond(tab-port-lg) {
+                            margin-right: 3.5rem;
+                        }
+                    }
+
+                    .icon {
+                        opacity: 0;
+                        position: absolute;
+                        right: 1.5rem;
+                        top: 1.6rem;
+                        transition: all .3s cubic-bezier(.62,.23,.24,1);
+
+                        @include respond(tab-port-lg) {
+                            opacity: 1;
+                        }
+
+                        & > svg {
+                            fill: $red;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            &--clear {
+                margin: 0 auto;
+                background-color: $red;
+
+                &:hover {
+                    background-color: $dark-red;
+                }
+            }
+        }
+    }
+
+    .btn {
+        text-align: center;
+        width: 10rem;
+        font-size: 1.2rem;
+        color: $white;
+        padding: 1.4rem;
+        border-radius: .5rem;
+        cursor: pointer;
+        transition: all .3s cubic-bezier(.62,.23,.24,1);
+
+        @include respond(tab-land-sm) {
+            width: 12rem;
+            font-size: 1.5rem;
+        }
+
+        @include respond(tab-port-lg) {
+            width: 15rem;
+            font-size: 1.8rem;
+        }
+    }
+}
+
+.copyright {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+    color: $grey;
+    
+    @include respond(tab-port-lg) {
+        font-size: 1.4rem;
+        text-align: center;
+        position: absolute;
+        bottom: -6rem;
+    }
+}
+
+.input-error {
+    animation: inputError .3s cubic-bezier(.62,.23,.24,1) forwards;
+}
+
+// .saved-error {
+//     animation: savedError .3s cubic-bezier(.62,.23,.24,1) forwards;
+// }
+

@@ -1,0 +1,16 @@
+@keyframes inputError {
+    to {
+        transform: translateY(4.5rem);
+        opacity: 1;
+    }
+}
+
+@keyframes loading {
+    50% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}

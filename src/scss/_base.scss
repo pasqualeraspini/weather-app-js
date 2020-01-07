@@ -1,0 +1,50 @@
+*,
+*::after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    -webkit-text-rendering: optimizeLegibility;
+
+    @include respond(desk-l) { 
+        font-size: 100%;
+    }
+
+    @include respond(4k) { 
+        font-size: 150%;
+    }
+
+    @include respond(tab-land) { 
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-land-sm) {
+        font-size: 50%;
+    }
+    
+}
+
+body {
+    box-sizing: border-box;
+    position: relative;
+}
+
+svg {
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $blue;
+}

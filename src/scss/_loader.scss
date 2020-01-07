@@ -1,0 +1,28 @@
+.header {
+    &__container {
+        &-card {
+            &--loader {
+                width: 7rem;
+                height: 7rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                overflow: hidden;
+
+                & > svg {
+                    fill: $blue;
+                    width: 7rem;
+                    height: 7rem;
+
+                    #filler {
+                        & > rect {
+                            transform: translateY(100%);
+                            animation: loading 1s cubic-bezier(.62,.23,.24,1) infinite;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
